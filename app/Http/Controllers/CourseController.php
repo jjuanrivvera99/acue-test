@@ -11,6 +11,7 @@ use App\Http\Requests\CourseRequest;
 use App\Http\Requests\ReportRequest;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Cache;
 
 class CourseController extends Controller
 {
@@ -20,8 +21,12 @@ class CourseController extends Controller
      */
     private function getCourses()
     {
-        // Get courses from API
-        $response = Http::get('https://lmstest.acue.org/ACUE-microcourselist.json')->collect();
+        $seconds = 60 * 60 * 2;
+
+        // Get courses from API or Cache
+        $response = Cache::remember('users', $seconds, function () {
+            return Http::get('https://lmstest.acue.org/ACUE-microcourselist.json')->collect();
+        });
 
         // Filter the attributes we want
         return $response->map(function ($course) {
