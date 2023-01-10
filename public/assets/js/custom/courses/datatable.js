@@ -13,7 +13,7 @@ const KTDatatablesServerSide = function () {
             // processing: true,
             serverSide: true,
             order: [
-                [10, 'desc']
+                // [10, 'desc']
             ],
             stateSave: true,
             ajax: {
