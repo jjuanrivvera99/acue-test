@@ -21,3 +21,4 @@ services:
     volumes:
       - ./:/var/www
     working_dir: /var/www
+    entrypoint: sh -c 'tail -f /dev/null'
