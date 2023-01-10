@@ -15,3 +15,9 @@ services:
 
   redis:
     image: redis
+
+  node:
+    image: node:19-alpine
+    volumes:
+      - ./:/var/www
+    working_dir: /var/www
