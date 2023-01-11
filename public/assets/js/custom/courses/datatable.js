@@ -24,6 +24,8 @@ const KTDatatablesServerSide = function () {
                 { data: 'name' },
                 { data: 'course_code' },
                 { data: 'workflow_state' },
+                { data: 'start_at' },
+                { data: 'end_at' },
             ],
             "columnDefs": [
                 {
@@ -39,6 +41,24 @@ const KTDatatablesServerSide = function () {
                         return '<span class="badge badge-' + color[data] + '">' + data + '</span>';
                     },
                     "targets": 3
+                },
+                {
+                    // The `data` parameter refers to the data for the cell (defined by the
+                    // `data` option, which defaults to the column being worked with, in
+                    // this case `data: 0`.
+                    "render": function ( data, type, row ) {
+                        return data ? moment(data).format('DD/MM/YYYY HH:mm:ss') : 'Undefined';
+                    },
+                    "targets": 4
+                },
+                {
+                    // The `data` parameter refers to the data for the cell (defined by the
+                    // `data` option, which defaults to the column being worked with, in
+                    // this case `data: 0`.
+                    "render": function ( data, type, row ) {
+                        return data ? moment(data).format('DD/MM/YYYY HH:mm:ss') : 'Undefined';
+                    },
+                    "targets": 5
                 }
             ]
         });

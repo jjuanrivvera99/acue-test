@@ -30,7 +30,14 @@ class CourseController extends Controller
 
         // Filter the attributes we want
         return $response->map(function ($course) {
-            return Arr::only($course, ['id', 'name', 'course_code', 'workflow_state']);
+            return Arr::only($course, [
+                'id',
+                'name',
+                'course_code',
+                'workflow_state',
+                'start_at',
+                'end_at'
+            ]);
         });
     }
 

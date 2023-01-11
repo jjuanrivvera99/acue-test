@@ -30,6 +30,8 @@
             <th>Name</th>
             <th>Course Code</th>
             <th>Workflow state</th>
+            <th>Start at</th>
+            <th>End at</th>
         </tr>
     </thead>
     <tbody class="text-gray-600 fw-semibold">
