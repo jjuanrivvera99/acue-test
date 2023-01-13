@@ -24,7 +24,7 @@ class CourseController extends Controller
         $seconds = 60 * 60 * 2;
 
         // Get courses from API or Cache
-        $response = Cache::remember('users', $seconds, function () {
+        $response = Cache::remember('courses', $seconds, function () {
             return Http::get('https://lmstest.acue.org/ACUE-microcourselist.json')->collect();
         });
 
